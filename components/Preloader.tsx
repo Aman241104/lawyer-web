@@ -13,7 +13,12 @@ export default function Preloader() {
     // Check if user already accepted disclaimer (preloader only once per session)
     const accepted = sessionStorage.getItem("preloader_done");
     if (accepted === "true") {
-      setIsAccepted(true);
+      setTimeout(() => {
+        setIsAccepted(true);
+        if (localStorage.getItem("bci_disclaimer_accepted") === "true") {
+          window.dispatchEvent(new Event("site_ready"));
+        }
+      }, 0);
       return;
     }
 
@@ -21,6 +26,10 @@ export default function Preloader() {
       onComplete: () => {
         setIsAccepted(true);
         sessionStorage.setItem("preloader_done", "true");
+        // If disclaimer was already accepted, preloader is the last gate
+        if (localStorage.getItem("bci_disclaimer_accepted") === "true") {
+          window.dispatchEvent(new Event("site_ready"));
+        }
       }
     });
 

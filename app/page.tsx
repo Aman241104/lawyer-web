@@ -11,47 +11,71 @@ export default function Home() {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Hero Master Timeline
-    const tl = gsap.timeline();
-    tl.from(".hero-bg-accent", { scale: 1.2, opacity: 0, duration: 2, ease: "power2.out" })
-      .from(".hero-text-reveal", { 
-        y: 100, 
-        opacity: 0, 
-        duration: 1.2, 
-        stagger: 0.1, 
-        ease: "power4.out" 
-      }, "-=1.5")
-      .from(".hero-platinum-line", { scaleX: 0, duration: 1.5, ease: "power4.inOut" }, "-=1")
-      .from(".hero-image-reveal", { x: 50, opacity: 0, duration: 1.5, ease: "power3.out" }, "-=1.2");
+    const startAnimations = () => {
+      // Hero Master Timeline
+      const tl = gsap.timeline();
+      tl.from(".hero-bg-accent", { scale: 1.2, opacity: 0, duration: 2, ease: "power2.out" })
+        .from(".hero-text-reveal", { 
+          y: 100, 
+          opacity: 0, 
+          duration: 1.2, 
+          stagger: 0.1, 
+          ease: "power4.out" 
+        }, "-=1.5")
+        .from(".hero-platinum-line", { scaleX: 0, duration: 1.5, ease: "power4.inOut" }, "-=1")
+        .from(".hero-image-reveal", { x: 50, opacity: 0, duration: 1.5, ease: "power3.out" }, "-=1.2");
 
-    // Section Fade-ins
-    const sections = gsap.utils.toArray<HTMLElement>(".reveal-section");
-    sections.forEach((section) => {
-      gsap.from(section, {
+      // Section Fade-ins
+      const sections = gsap.utils.toArray<HTMLElement>(".reveal-section");
+      sections.forEach((section) => {
+        gsap.from(section, {
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          opacity: 0,
+          y: 30,
+          duration: 1,
+          ease: "power3.out",
+        });
+      });
+
+      // Practice Area Cards Stagger
+      gsap.from(".practice-card", {
         scrollTrigger: {
-          trigger: section,
+          trigger: ".practice-grid",
           start: "top 85%",
           toggleActions: "play none none none",
         },
         opacity: 0,
-        y: 30,
+        y: 40,
         duration: 1,
+        stagger: {
+          amount: 0.8,
+          ease: "power2.out"
+        },
         ease: "power3.out",
       });
-    });
 
-    // Practice Area Cards Stagger
-    gsap.from(".practice-card", {
-      scrollTrigger: {
-        trigger: ".practice-grid",
-        start: "top 80%",
-      },
-      opacity: 0,
-      y: 20,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: "power2.out",
-    });
+      // Refresh ScrollTrigger to ensure all trigger points are correct
+      ScrollTrigger.refresh();
+      // Second refresh after a short delay to account for any layout shifts
+      setTimeout(() => ScrollTrigger.refresh(), 500);
+    };
+
+    // Check if preloader and disclaimer are already done
+    const isDisclaimerAccepted = typeof window !== 'undefined' && localStorage.getItem("bci_disclaimer_accepted") === "true";
+    const isPreloaderDone = typeof window !== 'undefined' && sessionStorage.getItem("preloader_done") === "true";
+
+    if (isDisclaimerAccepted && isPreloaderDone) {
+      // Delay slightly to ensure layout is ready
+      const timer = setTimeout(startAnimations, 100);
+      return () => clearTimeout(timer);
+    } else {
+      window.addEventListener("site_ready", startAnimations, { once: true });
+      return () => window.removeEventListener("site_ready", startAnimations);
+    }
   }, { scope: container });
 
   const practiceAreas = [
@@ -255,7 +279,7 @@ export default function Home() {
 
           <div className="practice-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-primary/5 platinum-border shadow-[0_50px_100px_-20px_rgba(0,0,0,0.05)]">
             {practiceAreas.map((area, index) => (
-              <div key={index} className="practice-card group relative p-16 bg-white hover:bg-primary transition-all duration-1000">
+              <div key={index} className="practice-card group relative p-16 bg-white hover:bg-primary transition-colors duration-700">
                 <div className="relative z-10">
                   <span className="text-4xl mb-12 block grayscale group-hover:grayscale-0 group-hover:rotate-12 transition-all duration-700 opacity-20 group-hover:opacity-100">{area.icon}</span>
                   <h3 className="font-serif text-2xl font-bold text-primary group-hover:text-white transition-colors duration-700 uppercase tracking-widest mb-8">
@@ -339,22 +363,22 @@ export default function Home() {
 
             <div className="p-20 platinum-border shadow-[0_60px_100px_-30px_rgba(0,0,0,0.1)] relative bg-white overflow-hidden rounded-none">
               <div className="absolute top-0 right-0 w-48 h-48 bg-accent/[0.03] rounded-bl-full -mr-24 -mt-24" />
-              <form className="space-y-12 relative z-10">
+              <form className="space-y-12 relative z-10" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid sm:grid-cols-2 gap-12">
                   <div className="border-b border-primary/10 py-4 focus-within:border-primary transition-all duration-700">
-                    <label className="block text-[9px] font-bold text-primary/20 uppercase tracking-[0.3em] mb-3">Principal Name</label>
-                    <input type="text" className="w-full bg-transparent focus:outline-none text-primary font-serif text-2xl italic" placeholder="Name" />
+                    <label htmlFor="name" className="block text-[9px] font-bold text-primary/20 uppercase tracking-[0.3em] mb-3">Principal Name</label>
+                    <input id="name" type="text" className="w-full bg-transparent focus:outline-none text-primary font-serif text-2xl italic" placeholder="Name" />
                   </div>
                   <div className="border-b border-primary/10 py-4 focus-within:border-primary transition-all duration-700">
-                    <label className="block text-[9px] font-bold text-primary/20 uppercase tracking-[0.3em] mb-3">Electronic Mail</label>
-                    <input type="email" className="w-full bg-transparent focus:outline-none text-primary font-serif text-2xl italic" placeholder="Email" />
+                    <label htmlFor="email" className="block text-[9px] font-bold text-primary/20 uppercase tracking-[0.3em] mb-3">Electronic Mail</label>
+                    <input id="email" type="email" className="w-full bg-transparent focus:outline-none text-primary font-serif text-2xl italic" placeholder="Email" />
                   </div>
                 </div>
                 <div className="border-b border-primary/10 py-4 focus-within:border-primary transition-all duration-700">
-                  <label className="block text-[9px] font-bold text-primary/20 uppercase tracking-[0.3em] mb-3">Subject of Inquiry</label>
-                  <input type="text" className="w-full bg-transparent focus:outline-none text-primary font-serif text-2xl italic" placeholder="Subject" />
+                  <label htmlFor="subject" className="block text-[9px] font-bold text-primary/20 uppercase tracking-[0.3em] mb-3">Subject of Inquiry</label>
+                  <input id="subject" type="text" className="w-full bg-transparent focus:outline-none text-primary font-serif text-2xl italic" placeholder="Subject" />
                 </div>
-                <button className="w-full py-8 bg-primary text-white font-serif font-bold uppercase tracking-[0.5em] hover:bg-accent transition-all duration-700 shadow-2xl rounded-none group overflow-hidden relative">
+                <button type="submit" className="w-full py-8 bg-primary text-white font-serif font-bold uppercase tracking-[0.5em] hover:bg-accent transition-all duration-700 shadow-2xl rounded-none group overflow-hidden relative">
                   <span className="relative z-10 text-xs">Transmit Inquiry</span>
                   <div className="absolute inset-0 bg-white/5 -translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
                 </button>

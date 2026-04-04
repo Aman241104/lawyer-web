@@ -39,6 +39,7 @@ const DisclaimerGate = () => {
       onComplete: () => {
         setStatus("accepted");
         localStorage.setItem("bci_disclaimer_accepted", "true");
+        window.dispatchEvent(new Event("site_ready"));
       },
     });
   };
