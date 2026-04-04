@@ -54,7 +54,7 @@ const Navbar = () => {
                     key={link.label}
                     href={link.href} 
                     className={`transition-all font-sans font-bold text-[10px] uppercase tracking-[0.3em] relative group ${
-                      scrolled ? "text-primary/60 hover:text-primary" : "text-white/70 hover:text-white"
+                      scrolled ? "text-primary/80 hover:text-primary" : "text-white/80 hover:text-white"
                     }`}
                   >
                     {link.label}
