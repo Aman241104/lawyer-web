@@ -49,16 +49,16 @@ const DisclaimerGate = () => {
   return (
     <div
       ref={gateRef}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-primary p-4 md:p-8"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-primary p-6 md:p-8"
     >
       <div
         ref={contentRef}
-        className="max-w-2xl bg-white p-8 md:p-12 shadow-2xl border-t-4 border-accent"
+        className="max-w-2xl bg-white p-6 md:p-12 shadow-2xl border-t-4 border-accent max-h-[90vh] overflow-y-auto"
       >
-        <h2 className="text-2xl md:text-3xl font-serif font-bold text-primary mb-6 text-center uppercase tracking-wider">
+        <h2 className="text-xl md:text-3xl font-serif font-bold text-primary mb-6 text-center uppercase tracking-wider">
           Disclaimer
         </h2>
-        <div className="space-y-4 text-primary/80 text-sm md:text-base leading-relaxed text-justify">
+        <div className="space-y-4 text-primary/80 text-xs md:text-base leading-relaxed text-justify">
           <p>
             The Bar Council of India does not permit advertisement or solicitation by advocates in any form or manner. By accessing this website, you acknowledge and confirm that you are seeking information of your own accord and that there has been no solicitation, advertisement, or inducement by this website or its owner.
           </p>
@@ -72,7 +72,7 @@ const DisclaimerGate = () => {
         <div className="mt-8 flex justify-center">
           <button
             onClick={handleAccept}
-            className="px-8 py-3 bg-primary text-white hover:bg-accent transition-colors duration-300 font-serif font-semibold tracking-wide"
+            className="px-6 md:px-8 py-2 md:py-3 bg-primary text-white hover:bg-accent transition-colors duration-300 font-serif font-semibold tracking-wide text-xs md:text-base"
           >
             I AGREE & ENTER
           </button>

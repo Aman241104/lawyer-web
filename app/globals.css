@@ -56,12 +56,18 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .section-title {
-  @apply text-[10px] font-bold uppercase tracking-[0.5em] text-accent mb-4 block;
+  @apply text-[9px] md:text-[10px] font-bold uppercase tracking-[0.3em] md:tracking-[0.5em] text-accent mb-4 block;
 }
 
 /* Platinum Border */
 .platinum-border {
   border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+@layer utilities {
+  .py-section {
+    @apply py-20 md:py-40;
+  }
 }
 
 /* Custom Scrollbar */
