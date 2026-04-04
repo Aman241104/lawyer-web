@@ -1,0 +1,62 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+
+export default function Preloader() {
+  const preloaderRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+  const [isLoaded, setIsAccepted] = useState(false);
+
+  useEffect(() => {
+    // Check if user already accepted disclaimer (preloader only once per session)
+    const accepted = sessionStorage.getItem("preloader_done");
+    if (accepted === "true") {
+      setIsAccepted(true);
+      return;
+    }
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        setIsAccepted(true);
+        sessionStorage.setItem("preloader_done", "true");
+      }
+    });
+
+    tl.set(preloaderRef.current, { visibility: "visible" })
+      .fromTo(textRef.current, 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+      )
+      .fromTo(lineRef.current, 
+        { scaleX: 0 }, 
+        { scaleX: 1, duration: 1.5, ease: "power4.inOut" },
+        "-=0.5"
+      )
+      .to(preloaderRef.current, {
+        yPercent: -100,
+        duration: 1.2,
+        ease: "power4.inOut",
+        delay: 0.5
+      });
+  }, []);
+
+  if (isLoaded) return null;
+
+  return (
+    <div 
+      ref={preloaderRef}
+      className="fixed inset-0 z-[100] bg-primary flex flex-col items-center justify-center invisible"
+    >
+      <div ref={textRef} className="text-center">
+        <span className="text-[10px] text-accent tracking-[0.8em] font-bold block mb-4 uppercase">Established Professionalism</span>
+        <h2 className="font-serif text-4xl md:text-6xl text-white italic font-bold">The Law Chambers</h2>
+      </div>
+      <div 
+        ref={lineRef}
+        className="w-48 h-[1px] bg-accent/30 mt-8 origin-center"
+      />
+    </div>
+  );
+}
