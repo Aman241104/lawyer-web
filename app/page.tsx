@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -82,57 +83,57 @@ export default function Home() {
     { 
       title: "Civil Litigation", 
       icon: "⚖️",
-      image: "/images/professional-briefcase.png",
+      image: "/images/professional-briefcase.webp",
       description: "Comprehensive range of civil matters including property disputes, recovery suits, injunctions, and specific performance of contracts."
     },
     { 
       title: "Criminal Defense", 
       icon: "🛡️",
-      image: "/images/justice-scales.png",
+      image: "/images/justice-scales.webp",
       description: "Legal representation in criminal matters including bail applications, quashing of FIRs, criminal revisions, and trials."
     },
     { 
       title: "Corporate Law", 
       icon: "🏢",
-      image: "/images/contract-signing.png",
+      image: "/images/contract-signing.webp",
       description: "Advisory on corporate compliance, contract drafting, mergers and acquisitions, and dispute resolution."
     },
     { 
       title: "Intellectual Property", 
       icon: "💡",
-      image: "/images/lawyer-working.png",
+      image: "/images/lawyer-working.webp",
       description: "Registration and litigation involving Trademarks, Copyrights, and Patents to protect intellectual assets."
     },
     { 
       title: "Real Estate Law", 
       icon: "🏠",
-      image: "/images/contract-signing.png",
+      image: "/images/contract-signing.webp",
       description: "Title verification, drafting of sale deeds, and RERA compliance. Representation in property-related litigation."
     },
     { 
       title: "Taxation Law", 
       icon: "📄",
-      image: "/images/legal-team.png",
+      image: "/images/legal-team.webp",
       description: "Counseling on direct and indirect tax matters, including GST compliance and Income Tax appeals."
     },
     { 
       title: "Family Law", 
       icon: "👨‍👩‍👧‍👦",
-      image: "/images/lawyer-portrait-3.png",
+      image: "/images/lawyer-portrait-3.webp",
       description: "Matrimonial disputes, divorce, maintenance, child custody, and succession matters."
     },
     { 
       title: "Arbitration", 
       icon: "🤝",
-      image: "/images/legal-team.png",
+      image: "/images/legal-team.webp",
       description: "Representation in domestic and international commercial arbitrations and enforcement of awards."
     },
   ];
 
   const team = [
-    { name: "Senior Counsel", role: "Principal Advocate", image: "/images/senior-lawyer.png" },
-    { name: "Advocate Partner", role: "Legal Associate", image: "/images/lawyer-portrait-1.png" },
-    { name: "Consultant Counsel", role: "Junior Advocate", image: "/images/lawyer-portrait-2.png" },
+    { name: "Senior Counsel", role: "Principal Advocate", image: "/images/senior-lawyer.webp" },
+    { name: "Advocate Partner", role: "Legal Associate", image: "/images/lawyer-portrait-1.webp" },
+    { name: "Consultant Counsel", role: "Junior Advocate", image: "/images/lawyer-portrait-2.webp" },
   ];
 
   const stats = [
@@ -165,7 +166,7 @@ export default function Home() {
       <section id="home" className="min-h-screen flex flex-col justify-center px-6 md:px-20 relative overflow-hidden bg-primary">
         {/* Background Visuals */}
         <div className="hero-bg-accent absolute inset-0 -z-10 bg-[#020617]">
-          <div className="absolute inset-0 bg-[url('/images/lawyer-working.png')] bg-cover bg-center opacity-5 mix-blend-luminosity" />
+          <div className="absolute inset-0 bg-[url('/images/lawyer-working.webp')] bg-cover bg-center opacity-5 mix-blend-luminosity" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,_rgba(148,163,184,0.1),transparent_70%)]" />
         </div>
 
@@ -192,10 +193,13 @@ export default function Home() {
             <div className="hero-image-reveal relative aspect-[4/5] platinum-border p-4 bg-white/5 backdrop-blur-3xl group">
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent" />
               <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
-                 <img 
-                   src="/images/legal-gavel.png" 
+                 <Image 
+                   src="/images/legal-gavel.webp" 
                    alt="Legal Gavel and Scales of Justice" 
-                   className="w-full h-full object-cover transition-all duration-1000"
+                   fill
+                   className="object-cover transition-all duration-1000"
+                   priority
+                   sizes="(max-width: 1024px) 0px, 400px"
                  />
                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-1000" />
               </div>
@@ -220,10 +224,13 @@ export default function Home() {
           <div className="lg:col-span-5 lg:sticky lg:top-40 mb-20 lg:mb-0">
             <div className="relative group max-w-xs md:max-w-md mx-auto lg:max-w-none">
               <div className="aspect-[4/5] bg-primary/[0.02] border border-primary/5 overflow-hidden relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)]">
-                <img 
-                  src="/images/senior-lawyer.png" 
+                <Image 
+                  src="/images/senior-lawyer.webp" 
                   alt="Advocate Name - Legal Professional" 
-                  className="w-full h-full object-cover transition-all duration-1000 scale-110 group-hover:scale-100"
+                  fill
+                  className="object-cover transition-all duration-1000 scale-110 group-hover:scale-100"
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  priority
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 w-32 h-32 md:w-48 md:h-48 bg-primary flex flex-col items-center justify-center text-white font-serif text-center p-4 md:p-8 shadow-2xl">
@@ -279,10 +286,12 @@ export default function Home() {
             {team.map((member, i) => (
               <div key={i} className="group relative">
                 <div className="aspect-[3/4] overflow-hidden platinum-border relative mb-8">
-                  <img 
+                  <Image 
                     src={member.image} 
                     alt={member.name} 
-                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
+                    fill
+                    className="object-cover transition-all duration-1000 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-1000" />
                 </div>
@@ -333,7 +342,13 @@ export default function Home() {
               <div key={index} className="practice-card group relative p-10 md:p-16 bg-primary md:bg-white hover:bg-primary transition-colors duration-700 overflow-hidden">
                 {/* Background Image on Hover */}
                 <div className="absolute inset-0 opacity-10 md:opacity-0 md:group-hover:opacity-10 transition-opacity duration-1000 scale-100 md:scale-125 md:group-hover:scale-100 transform duration-1000">
-                  <img src={area.image} alt={area.title} className="w-full h-full object-cover" />
+                  <Image 
+                    src={area.image} 
+                    alt={area.title} 
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
                 </div>
                 
                 <div className="relative z-10">
