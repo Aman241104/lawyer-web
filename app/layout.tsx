@@ -18,12 +18,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Advocate Name | Independent Legal Practitioner | Mumbai High Court",
-  description: "Official professional profile of Advocate Name, LL.M. Providing independent legal advocacy and strategic counsel in Mumbai. Enrolled with the Bar Council of India.",
-  keywords: ["Advocate", "Lawyer", "Mumbai High Court", "Legal Services", "Constitutional Law", "Civil Litigation"],
+  title: "Jay G Patel | Advocate | Ahmedabad High Court",
+  description: "Official professional profile of Jay G Patel, Advocate. Providing independent legal advocacy and strategic counsel in Ahmedabad. Enrolled with the Bar Council of India.",
+  keywords: ["Jay G Patel", "Advocate", "Ahmedabad High Court", "Legal Services", "Constitutional Law", "Civil Litigation"],
   openGraph: {
-    title: "Advocate Name | Independent Legal Practitioner",
-    description: "Official professional profile of Advocate Name, LL.M. Dedicated to the highest standards of legal precision and professional conduct.",
+    title: "Jay G Patel | Advocate",
+    description: "Official professional profile of Jay G Patel, Advocate. Dedicated to the highest standards of legal precision and professional conduct.",
     type: "website",
     locale: "en_IN",
   },
@@ -46,20 +46,20 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LegalService",
-              "name": "Advocate Name, LL.M.",
+              "name": "Jay G Patel, Advocate",
               "description": "Independent legal practitioner providing personalized advocacy and strategic counsel.",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Legal Avenue, High Court Premises",
-                "addressLocality": "Mumbai",
-                "addressRegion": "Maharashtra",
-                "postalCode": "400001",
+                "streetAddress": "FF-13, Omkar Lotus, Opp. SMVS Swaminarayan Temple, Chandkheda To Motera Road, Chandkheda",
+                "addressLocality": "Ahmedabad",
+                "addressRegion": "Gujarat",
+                "postalCode": "382424",
                 "addressCountry": "IN"
               },
-              "telephone": "+91-9XXXX-XXXXX",
-              "email": "info@advocatename.in",
-              "url": "https://advocatename.in",
-              "knowsAbout": ["Constitutional Law", "Civil Litigation", "Corporate Law", "Intellectual Property"]
+              "telephone": "+91-99987-14891",
+              "email": "jay1802@gmail.com",
+              "url": "https://jaygpatel.in",
+              "knowsAbout": ["Criminal Law", "Land Revenue", "Family Law", "Corporate Law"]
             })
           }}
         />

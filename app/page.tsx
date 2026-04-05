@@ -88,28 +88,28 @@ export default function Home() {
 
   const practiceAreas = [
     { 
-      title: "Civil Litigation", 
-      icon: "⚖️",
-      image: "/images/professional-briefcase.webp",
-      description: "Comprehensive range of civil matters including property disputes, recovery suits, injunctions, and specific performance of contracts."
-    },
-    { 
-      title: "Criminal Defense", 
+      title: "Criminal Law", 
       icon: "🛡️",
       image: "/images/justice-scales.webp",
       description: "Legal representation in criminal matters including bail applications, quashing of FIRs, criminal revisions, and trials."
+    },
+    { 
+      title: "Land Revenue", 
+      icon: "📜",
+      image: "/images/professional-briefcase.webp",
+      description: "Expertise in land revenue matters, title verification, property disputes, and related litigation."
+    },
+    { 
+      title: "Family Law", 
+      icon: "👨‍👩‍👧‍👦",
+      image: "/images/lawyer-portrait-3.webp",
+      description: "Matrimonial disputes, divorce, maintenance, child custody, and succession matters."
     },
     { 
       title: "Corporate Law", 
       icon: "🏢",
       image: "/images/contract-signing.webp",
       description: "Advisory on corporate compliance, contract drafting, mergers and acquisitions, and dispute resolution."
-    },
-    { 
-      title: "Intellectual Property", 
-      icon: "💡",
-      image: "/images/lawyer-working.webp",
-      description: "Registration and litigation involving Trademarks, Copyrights, and Patents to protect intellectual assets."
     },
     { 
       title: "Real Estate Law", 
@@ -141,7 +141,7 @@ export default function Home() {
     { value: "15+", label: "Years of Experience" },
     { value: "500+", label: "Successful Consultations" },
     { value: "12+", label: "Courts of Representation" },
-    { value: "Mumbai", label: "Primary Jurisdiction" },
+    { value: "Ahmedabad", label: "Primary Jurisdiction" },
   ];
 
   const workingHours = [
@@ -177,7 +177,7 @@ export default function Home() {
               <span className="section-title !text-accent tracking-[0.4em] md:tracking-[0.8em] font-bold !mb-6 md:!mb-10">THE INDEPENDENT PRACTICE OF</span>
               <h1 className="font-serif text-5xl md:text-8xl lg:text-[11rem] font-bold text-white leading-tight md:leading-[0.85] tracking-tighter mb-8 md:mb-10">
                 Advocate <br /> 
-                <span className="text-accent italic md:translate-x-4 inline-block">Name</span>
+                <span className="text-accent italic md:translate-x-4 inline-block text-6xl md:text-8xl lg:text-[10rem]">Jay G Patel</span>
               </h1>
             </div>
             
@@ -195,10 +195,10 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent" />
               <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
                  <Image 
-                   src="/images/legal-gavel.webp" 
-                   alt="Legal Gavel and Scales of Justice" 
+                   src="/images/logo-jay-g-patel.png" 
+                   alt="Jay G Patel Advocate Logo" 
                    fill
-                   className="object-cover transition-all duration-1000"
+                   className="object-contain transition-all duration-1000 p-8"
                    priority
                    sizes="(max-width: 1024px) 0px, 400px"
                  />
@@ -206,7 +206,7 @@ export default function Home() {
               </div>
               {/* Floating Badge */}
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-white flex items-center justify-center text-primary font-serif p-4 text-center border border-accent shadow-2xl">
-                 <span className="text-[10px] uppercase font-bold tracking-widest leading-tight">ESTABLISHED <br/> MCMXCII</span>
+                 <span className="text-[10px] uppercase font-bold tracking-widest leading-tight">CHANDKHEDA <br/> AHMEDABAD</span>
               </div>
             </div>
           </div>
@@ -226,8 +226,8 @@ export default function Home() {
             <div className="relative group max-w-xs md:max-w-md mx-auto lg:max-w-none">
               <div className="aspect-[4/5] bg-primary/[0.02] border border-primary/5 overflow-hidden relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)]">
                 <Image 
-                  src="/images/senior-lawyer.webp" 
-                  alt="Advocate Name - Legal Professional" 
+                  src="/images/jay-g-patel.png" 
+                  alt="Jay G Patel - Advocate" 
                   fill
                   className="object-cover transition-all duration-1000 scale-110 group-hover:scale-100"
                   sizes="(max-width: 768px) 100vw, 500px"
@@ -244,29 +244,29 @@ export default function Home() {
           <div className="lg:col-span-7 legal-line relative">
             <span className="section-title">Professional Biography</span>
             <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight italic mb-8 md:mb-12">
-              Advocate Name, <span className="text-accent text-3xl md:text-5xl">LL.M.</span>
+              Jay G Patel, <span className="text-accent text-3xl md:text-5xl">Advocate</span>
             </h2>
             <div className="space-y-8 md:space-y-12 text-primary/70 text-base md:text-xl leading-relaxed font-serif">
               <p className="first-letter:text-5xl md:first-letter:text-6xl first-letter:font-serif first-letter:text-accent first-letter:float-left first-letter:mr-3 md:first-letter:mr-4 first-letter:mt-1 md:first-letter:mt-2">
-                As an independent advocate enrolled with the State Bar Council (Enrolment No: MAH/1234/20XX), I am dedicated to maintaining the highest standards of professional conduct and academic rigour before the Hon&apos;ble High Court and District Courts. My practice is built on a foundation of integrity and specialized legal knowledge.
+                As an independent advocate enrolled with the Bar Council of Gujarat (Enrolment No: G/1876/2008), I am dedicated to maintaining the highest standards of professional conduct and academic rigour before the Hon&apos;ble Gujarat High Court and District Courts. My practice is built on a foundation of integrity and specialized legal knowledge.
               </p>
               
               <div className="grid sm:grid-cols-2 gap-12 md:gap-16 mt-16 md:mt-24 p-8 md:p-16 bg-[#fafafa] border border-primary/5 relative">
                 <div className="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-accent/5 rounded-bl-full" />
                 <div>
-                  <h3 className="text-primary font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-6 md:mb-8 text-accent pb-2 border-b-2 border-accent/20 inline-block italic">Academic Credentials</h3>
+                  <h3 className="text-primary font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-6 md:mb-8 text-accent pb-2 border-b-2 border-accent/20 inline-block italic">Credentials & Background</h3>
                   <ul className="space-y-6 md:space-y-8 text-sm md:text-base">
-                    <li><p className="font-bold text-primary">Master of Laws (LL.M.)</p><p className="text-[9px] md:text-[10px] italic font-sans text-primary/70 uppercase tracking-widest mt-1">Constitutional Law</p></li>
-                    <li><p className="font-bold text-primary">Bachelor of Laws (LL.B.)</p><p className="text-[9px] md:text-[10px] italic font-sans text-primary/70 uppercase tracking-widest mt-1">University of Mumbai</p></li>
+                    <li><p className="font-bold text-primary">B.Com, LL.B.</p><p className="text-[9px] md:text-[10px] italic font-sans text-primary/70 uppercase tracking-widest mt-1">Educational Background</p></li>
+                    <li><p className="font-bold text-primary">Ahmedabad District Bar Association</p><p className="text-[9px] md:text-[10px] italic font-sans text-primary/70 uppercase tracking-widest mt-1">Member</p></li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-primary font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-6 md:mb-8 text-accent pb-2 border-b-2 border-accent/20 inline-block italic">Practice Courts</h3>
+                  <h3 className="text-primary font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-6 md:mb-8 text-accent pb-2 border-b-2 border-accent/20 inline-block italic">Practice Focus</h3>
                   <ul className="space-y-3 md:space-y-4 text-sm md:text-base italic text-primary/80">
-                    <li className="flex items-center gap-3 md:gap-4"><div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-accent" />Supreme Court of India</li>
-                    <li className="flex items-center gap-3 md:gap-4"><div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-accent" />Bombay High Court</li>
-                    <li className="flex items-center gap-3 md:gap-4"><div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-accent" />NCLT & Appellate Tribunals</li>
-                    <li className="flex items-center gap-3 md:gap-4"><div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-accent" />District & Sessions Courts</li>
+                    <li className="flex items-center gap-3 md:gap-4"><div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-accent" />Criminal Law</li>
+                    <li className="flex items-center gap-3 md:gap-4"><div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-accent" />Land Revenue</li>
+                    <li className="flex items-center gap-3 md:gap-4"><div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-accent" />Family Law</li>
+                    <li className="flex items-center gap-3 md:gap-4"><div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-accent" />Corporate Law</li>
                   </ul>
                 </div>
               </div>
@@ -385,18 +385,19 @@ export default function Home() {
                 <div className="group">
                   <p className="text-accent font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 md:mb-8">Office Address</p>
                   <p className="text-primary text-xl md:text-3xl font-serif leading-tight italic hover:text-accent transition-colors duration-500 cursor-default">
-                    Law Chambers, 123 Legal Avenue,<br />
-                    High Court Premises, Mumbai 400001
+                    FF-13, Omkar Lotus, Opp. SMVS Swaminarayan Temple,<br />
+                    Chandkheda To Motera Road,<br />
+                    Ahmedabad, Gujarat 382424
                   </p>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-12 md:gap-24">
                   <div className="group">
                     <p className="text-accent font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 md:mb-8">Contact Number</p>
-                    <p className="text-primary text-xl md:text-3xl font-serif italic">+91 9XXXX XXXXX</p>
+                    <p className="text-primary text-xl md:text-3xl font-serif italic">+91 99987 14891<br/>+91 99132 61013</p>
                   </div>
                   <div className="group">
                     <p className="text-accent font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 md:mb-8">Email Address</p>
-                    <p className="text-primary text-xl md:text-3xl font-serif italic underline underline-offset-8 decoration-1 decoration-accent/30 hover:decoration-accent transition-all break-all uppercase md:text-2xl">info@advocatename.in</p>
+                    <p className="text-primary text-xl md:text-3xl font-serif italic underline underline-offset-8 decoration-1 decoration-accent/30 hover:decoration-accent transition-all break-all uppercase md:text-2xl">jay1802@gmail.com</p>
                   </div>
                 </div>
               </div>

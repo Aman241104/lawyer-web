@@ -60,7 +60,7 @@ export default function Preloader() {
     >
       <div ref={textRef} className="text-center">
         <span className="text-[10px] text-accent tracking-[0.8em] font-bold block mb-4 uppercase">Independent Legal Practice</span>
-        <h2 className="font-serif text-4xl md:text-6xl text-white italic font-bold">Advocate Name</h2>
+        <h2 className="font-serif text-4xl md:text-6xl text-white italic font-bold">Jay G Patel</h2>
       </div>
       <div 
         ref={lineRef}

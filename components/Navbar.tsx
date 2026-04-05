@@ -16,10 +16,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Practice Areas", href: "#practice" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/#about" },
+    { label: "Practice Areas", href: "/#practice" },
+    { label: "Terms", href: "/terms" },
+    { label: "Contact", href: "/contact" },
   ];
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
@@ -42,7 +43,7 @@ const Navbar = () => {
                   scrolled ? "text-primary" : "text-white"
                 }`}
               >
-                ADVOCATE <span className="text-accent italic">NAME</span>
+                ADVOCATE <span className="text-accent italic">JAY G PATEL</span>
               </Link>
             </div>
             
@@ -50,7 +51,7 @@ const Navbar = () => {
             <div className="hidden md:block">
               <div className="flex items-center space-x-12">
                 {navLinks.map((link) => (
-                  <a 
+                  <Link 
                     key={link.label}
                     href={link.href} 
                     className={`transition-all font-sans font-bold text-[10px] uppercase tracking-[0.3em] relative group ${
@@ -59,7 +60,7 @@ const Navbar = () => {
                   >
                     {link.label}
                     <span className={`absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-500 group-hover:w-full`}></span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -90,17 +91,17 @@ const Navbar = () => {
       >
         <div className="flex flex-col items-center justify-center h-full space-y-10">
           {navLinks.map((link) => (
-            <a 
+            <Link 
               key={link.label}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               className="text-primary font-serif text-3xl italic font-bold hover:text-accent transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <div className="pt-10">
-            <p className="text-accent font-sans font-bold text-[10px] uppercase tracking-[0.5em]">Advocate Name</p>
+            <p className="text-accent font-sans font-bold text-[10px] uppercase tracking-[0.5em]">Jay G Patel</p>
           </div>
         </div>
       </div>
