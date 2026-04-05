@@ -60,13 +60,13 @@ const DisclaimerGate = () => {
         </h2>
         <div className="space-y-4 text-primary/80 text-xs md:text-base leading-relaxed text-justify">
           <p>
-            The Bar Council of India does not permit advertisement or solicitation by advocates in any form or manner. By accessing this website, you acknowledge and confirm that you are seeking information of your own accord and that there has been no solicitation, advertisement, or inducement by this website or its owner.
+            The Bar Council of India does not permit advertisement or solicitation by advocates in any form or manner. By accessing this website, you acknowledge and confirm that you are seeking information of your own accord and that there has been no solicitation, advertisement, or inducement by the advocate or this website.
           </p>
           <p>
             The content provided on this website is for informational purposes only and should not be interpreted as soliciting or advertisement. No material or information provided on this website should be construed as legal advice.
           </p>
           <p>
-            The owner of this website shall not be liable for any consequences of any action taken by the user relying on material / information provided under this website. In cases where the user has any legal issues, he/she in all cases must seek independent legal advice.
+            The practitioner shall not be liable for any consequences of any action taken by the user relying on material / information provided under this website. In cases where the user has any legal issues, he/she in all cases must seek independent legal advice.
           </p>
         </div>
         <div className="mt-8 flex justify-center">

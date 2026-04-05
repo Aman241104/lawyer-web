@@ -8,7 +8,7 @@ const Footer = () => {
               ADVOCATE <span className="text-accent">NAME</span>
             </h3>
             <p className="text-white/80 text-xs md:text-sm max-w-md leading-relaxed">
-              Factual information provided in compliance with the rules of the Bar Council of India.
+              Factual information provided regarding the legal services of Advocate Name in compliance with the rules of the Bar Council of India.
             </p>
           </div>
           <div className="md:text-right">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,6 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const container = useRef<HTMLDivElement>(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulate submission
+    setSubmitted(true);
+  };
 
   useGSAP(() => {
     const startAnimations = () => {
@@ -130,17 +137,11 @@ export default function Home() {
     },
   ];
 
-  const team = [
-    { name: "Senior Counsel", role: "Principal Advocate", image: "/images/senior-lawyer.webp" },
-    { name: "Advocate Partner", role: "Legal Associate", image: "/images/lawyer-portrait-1.webp" },
-    { name: "Consultant Counsel", role: "Junior Advocate", image: "/images/lawyer-portrait-2.webp" },
-  ];
-
   const stats = [
-    { value: "15+", label: "Years of Practice" },
-    { value: "500+", label: "Legal Consultations" },
+    { value: "15+", label: "Years of Experience" },
+    { value: "500+", label: "Successful Consultations" },
     { value: "12+", label: "Courts of Representation" },
-    { value: "4", label: "Office Locations" },
+    { value: "Mumbai", label: "Primary Jurisdiction" },
   ];
 
   const workingHours = [
@@ -173,7 +174,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-12 gap-12 items-center max-w-7xl mx-auto w-full py-20 md:py-0">
           <div className="lg:col-span-8">
             <div className="hero-text-reveal">
-              <span className="section-title !text-accent tracking-[0.4em] md:tracking-[0.8em] font-bold !mb-6 md:!mb-10">THE LAW CHAMBERS OF</span>
+              <span className="section-title !text-accent tracking-[0.4em] md:tracking-[0.8em] font-bold !mb-6 md:!mb-10">THE INDEPENDENT PRACTICE OF</span>
               <h1 className="font-serif text-5xl md:text-8xl lg:text-[11rem] font-bold text-white leading-tight md:leading-[0.85] tracking-tighter mb-8 md:mb-10">
                 Advocate <br /> 
                 <span className="text-accent italic md:translate-x-4 inline-block">Name</span>
@@ -184,7 +185,7 @@ export default function Home() {
             
             <div className="hero-text-reveal">
               <p className="text-white/70 text-[10px] md:text-base font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] max-w-xl leading-relaxed md:leading-loose italic">
-                Factual Professional Information & Legal Credentials in accordance with the Bar Council of India Rules.
+                Personalized Legal Advocacy & Strategic Counsel in accordance with the Bar Council of India Rules.
               </p>
             </div>
           </div>
@@ -241,19 +242,19 @@ export default function Home() {
           </div>
           
           <div className="lg:col-span-7 legal-line relative">
-            <span className="section-title">Legal Practitioner Profile</span>
+            <span className="section-title">Professional Biography</span>
             <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight italic mb-8 md:mb-12">
               Advocate Name, <span className="text-accent text-3xl md:text-5xl">LL.M.</span>
             </h2>
             <div className="space-y-8 md:space-y-12 text-primary/70 text-base md:text-xl leading-relaxed font-serif">
               <p className="first-letter:text-5xl md:first-letter:text-6xl first-letter:font-serif first-letter:text-accent first-letter:float-left first-letter:mr-3 md:first-letter:mr-4 first-letter:mt-1 md:first-letter:mt-2">
-                As an advocate enrolled with the State Bar Council (Enrolment No: MAH/1234/20XX), this practice is governed by the highest standards of professional conduct and academic rigour before the Hon&apos;ble High Court and District Courts.
+                As an independent advocate enrolled with the State Bar Council (Enrolment No: MAH/1234/20XX), I am dedicated to maintaining the highest standards of professional conduct and academic rigour before the Hon&apos;ble High Court and District Courts. My practice is built on a foundation of integrity and specialized legal knowledge.
               </p>
               
               <div className="grid sm:grid-cols-2 gap-12 md:gap-16 mt-16 md:mt-24 p-8 md:p-16 bg-[#fafafa] border border-primary/5 relative">
                 <div className="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-accent/5 rounded-bl-full" />
                 <div>
-                  <h3 className="text-primary font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-6 md:mb-8 text-accent pb-2 border-b-2 border-accent/20 inline-block italic">Qualifications</h3>
+                  <h3 className="text-primary font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-6 md:mb-8 text-accent pb-2 border-b-2 border-accent/20 inline-block italic">Academic Credentials</h3>
                   <ul className="space-y-6 md:space-y-8 text-sm md:text-base">
                     <li><p className="font-bold text-primary">Master of Laws (LL.M.)</p><p className="text-[9px] md:text-[10px] italic font-sans text-primary/70 uppercase tracking-widest mt-1">Constitutional Law</p></li>
                     <li><p className="font-bold text-primary">Bachelor of Laws (LL.B.)</p><p className="text-[9px] md:text-[10px] italic font-sans text-primary/70 uppercase tracking-widest mt-1">University of Mumbai</p></li>
@@ -270,37 +271,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION: LEGAL TEAM */}
-      <section className="reveal-section py-section bg-accent/5 border-y border-accent/10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-20">
-            <span className="section-title">The Legal Collective</span>
-            <h2 className="font-serif text-5xl md:text-7xl font-bold text-primary italic">Meet Our <br className="hidden md:block"/>Professionals</h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-12 md:gap-8">
-            {team.map((member, i) => (
-              <div key={i} className="group relative">
-                <div className="aspect-[3/4] overflow-hidden platinum-border relative mb-8">
-                  <Image 
-                    src={member.image} 
-                    alt={member.name} 
-                    fill
-                    className="object-cover transition-all duration-1000 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-1000" />
-                </div>
-                <div className="pl-4 border-l-2 border-accent/20 group-hover:border-accent transition-colors duration-500">
-                  <h3 className="font-serif text-2xl font-bold text-primary italic">{member.name}</h3>
-                  <p className="text-[10px] uppercase tracking-widest font-bold text-accent mt-2">{member.role}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -325,14 +295,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-40 gap-8 md:gap-10">
             <div className="max-w-3xl">
-              <span className="section-title">Practice Verticals</span>
+              <span className="section-title">Legal Specializations</span>
               <h2 className="font-serif text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter italic text-primary leading-none">
-                Areas of Expertise
+                My Areas of Expertise
               </h2>
             </div>
             <div className="max-w-sm border-l-4 border-accent pl-6 md:pl-10">
                <p className="text-primary/60 uppercase tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[9px] font-bold leading-loose italic">
-                Furnishing factual details of legal practice undertaken in compliance with the rules of the Bar Council of India.
+                Furnishing factual details of the legal services I provide in compliance with the rules of the Bar Council of India.
                </p>
             </div>
           </div>
@@ -370,8 +340,8 @@ export default function Home() {
       <section className="reveal-section py-section px-6 md:px-4 bg-[#f1f5f9]/30">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 md:gap-32">
           <div className="lg:col-span-5">
-            <span className="section-title">Appointment Data</span>
-            <h2 className="font-serif text-4xl md:text-6xl font-bold text-primary italic mb-10 md:mb-20">Working <br className="hidden md:block"/>Schedule</h2>
+            <span className="section-title">Availability Profile</span>
+            <h2 className="font-serif text-4xl md:text-6xl font-bold text-primary italic mb-10 md:mb-20">Office <br className="hidden md:block"/>Schedule</h2>
             <div className="platinum-border overflow-hidden bg-white shadow-2xl rounded-sm">
               <table className="w-full text-left">
                 <tbody>
@@ -406,14 +376,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 md:gap-40 items-center">
             <div>
-              <span className="section-title">Contact Infrastructure</span>
+              <span className="section-title">Direct Communication</span>
               <h2 className="font-serif text-6xl md:text-9xl font-bold text-primary mb-12 md:mb-20 italic leading-none tracking-tighter">
-                Official <br /> <span className="text-accent">Registry</span>
+                Professional <br /> <span className="text-accent">Registry</span>
               </h2>
               
               <div className="space-y-12 md:space-y-20">
                 <div className="group">
-                  <p className="text-accent font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 md:mb-8">Primary Chambers</p>
+                  <p className="text-accent font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 md:mb-8">Office Address</p>
                   <p className="text-primary text-xl md:text-3xl font-serif leading-tight italic hover:text-accent transition-colors duration-500 cursor-default">
                     Law Chambers, 123 Legal Avenue,<br />
                     High Court Premises, Mumbai 400001
@@ -421,42 +391,61 @@ export default function Home() {
                 </div>
                 <div className="grid sm:grid-cols-2 gap-12 md:gap-24">
                   <div className="group">
-                    <p className="text-accent font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 md:mb-8">Telephone</p>
+                    <p className="text-accent font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 md:mb-8">Contact Number</p>
                     <p className="text-primary text-xl md:text-3xl font-serif italic">+91 9XXXX XXXXX</p>
                   </div>
                   <div className="group">
-                    <p className="text-accent font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 md:mb-8">Electronic Mail</p>
+                    <p className="text-accent font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 md:mb-8">Email Address</p>
                     <p className="text-primary text-xl md:text-3xl font-serif italic underline underline-offset-8 decoration-1 decoration-accent/30 hover:decoration-accent transition-all break-all uppercase md:text-2xl">info@advocatename.in</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-20 lg:mt-0 p-8 md:p-20 platinum-border shadow-[0_60px_100px_-30px_rgba(0,0,0,0.1)] relative bg-white overflow-hidden rounded-none">
+            <div className="mt-20 lg:mt-0 p-8 md:p-20 platinum-border shadow-[0_60px_100px_-30px_rgba(0,0,0,0.1)] relative bg-white overflow-hidden rounded-none min-h-[500px] flex flex-col justify-center">
               <div className="absolute top-0 right-0 w-32 h-32 md:w-48 md:h-48 bg-accent/[0.03] rounded-bl-full -mr-16 -mt-16 md:-mr-24 md:-mt-24" />
-              <form className="space-y-8 md:space-y-12 relative z-10" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid sm:grid-cols-2 gap-8 md:gap-12">
-                  <div className="border-b border-primary/10 py-3 md:py-4 focus-within:border-primary transition-all duration-700">
-                    <label htmlFor="name" className="block text-[8px] md:text-[9px] font-bold text-primary/60 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3">Principal Name</label>
-                    <input id="name" type="text" className="w-full bg-transparent focus:outline-none text-primary font-serif text-xl md:text-2xl italic" placeholder="Name" />
+              
+              {!submitted ? (
+                <form className="space-y-8 md:space-y-12 relative z-10" onSubmit={handleSubmit}>
+                  <div className="grid sm:grid-cols-2 gap-8 md:gap-12">
+                    <div className="border-b border-primary/10 py-3 md:py-4 focus-within:border-primary transition-all duration-700">
+                      <label htmlFor="name" className="block text-[8px] md:text-[9px] font-bold text-primary/60 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3">Full Name</label>
+                      <input id="name" type="text" required className="w-full bg-transparent focus:outline-none text-primary font-serif text-xl md:text-2xl italic" placeholder="Your Name" />
+                    </div>
+                    <div className="border-b border-primary/10 py-3 md:py-4 focus-within:border-primary transition-all duration-700">
+                      <label htmlFor="email" className="block text-[8px] md:text-[9px] font-bold text-primary/60 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3">Email Address</label>
+                      <input id="email" type="email" required className="w-full bg-transparent focus:outline-none text-primary font-serif text-xl md:text-2xl italic" placeholder="Your Email" />
+                    </div>
                   </div>
                   <div className="border-b border-primary/10 py-3 md:py-4 focus-within:border-primary transition-all duration-700">
-                    <label htmlFor="email" className="block text-[8px] md:text-[9px] font-bold text-primary/60 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3">Electronic Mail</label>
-                    <input id="email" type="email" className="w-full bg-transparent focus:outline-none text-primary font-serif text-xl md:text-2xl italic" placeholder="Email" />
+                    <label htmlFor="subject" className="block text-[8px] md:text-[9px] font-bold text-primary/60 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3">Subject</label>
+                    <input id="subject" type="text" required className="w-full bg-transparent focus:outline-none text-primary font-serif text-xl md:text-2xl italic" placeholder="Purpose of Inquiry" />
                   </div>
+                  <button type="submit" className="w-full py-6 md:py-8 bg-primary text-white font-serif font-bold uppercase tracking-[0.3em] md:tracking-[0.5em] hover:bg-accent transition-all duration-700 shadow-2xl rounded-none group overflow-hidden relative">
+                    <span className="relative z-10 text-[10px] md:text-xs">Send Inquiry</span>
+                    <div className="absolute inset-0 bg-white/5 -translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
+                  </button>
+                  <p className="text-[8px] md:text-[9px] text-primary/60 text-center uppercase tracking-[0.3em] md:tracking-[0.4em] leading-loose font-bold italic">
+                    NO ATTORNEY-CLIENT RELATIONSHIP FORMED VIA SUBMISSION.
+                  </p>
+                </form>
+              ) : (
+                <div className="relative z-10 text-center space-y-6 py-10">
+                  <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <span className="text-4xl">✓</span>
+                  </div>
+                  <h3 className="font-serif text-3xl md:text-4xl text-primary italic">Inquiry Transmitted</h3>
+                  <p className="text-primary/60 font-serif text-base md:text-lg italic max-w-sm mx-auto">
+                    Your communication has been received. I will review the details and respond via the provided email address.
+                  </p>
+                  <button 
+                    onClick={() => setSubmitted(false)}
+                    className="text-accent uppercase tracking-widest text-[10px] font-bold border-b border-accent/30 pb-1 hover:border-accent transition-all mt-8"
+                  >
+                    Send Another Inquiry
+                  </button>
                 </div>
-                <div className="border-b border-primary/10 py-3 md:py-4 focus-within:border-primary transition-all duration-700">
-                  <label htmlFor="subject" className="block text-[8px] md:text-[9px] font-bold text-primary/60 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3">Subject of Inquiry</label>
-                  <input id="subject" type="text" className="w-full bg-transparent focus:outline-none text-primary font-serif text-xl md:text-2xl italic" placeholder="Subject" />
-                </div>
-                <button type="submit" className="w-full py-6 md:py-8 bg-primary text-white font-serif font-bold uppercase tracking-[0.3em] md:tracking-[0.5em] hover:bg-accent transition-all duration-700 shadow-2xl rounded-none group overflow-hidden relative">
-                  <span className="relative z-10 text-[10px] md:text-xs">Transmit Inquiry</span>
-                  <div className="absolute inset-0 bg-white/5 -translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
-                </button>
-                <p className="text-[8px] md:text-[9px] text-primary/60 text-center uppercase tracking-[0.3em] md:tracking-[0.4em] leading-loose font-bold italic">
-                  NO ATTORNEY-CLIENT RELATIONSHIP FORMED VIA SUBMISSION.
-                </p>
-              </form>
+              )}
             </div>
           </div>
         </div>

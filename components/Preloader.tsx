@@ -59,8 +59,8 @@ export default function Preloader() {
       className="fixed inset-0 z-[100] bg-primary flex flex-col items-center justify-center invisible"
     >
       <div ref={textRef} className="text-center">
-        <span className="text-[10px] text-accent tracking-[0.8em] font-bold block mb-4 uppercase">Established Professionalism</span>
-        <h2 className="font-serif text-4xl md:text-6xl text-white italic font-bold">The Law Chambers</h2>
+        <span className="text-[10px] text-accent tracking-[0.8em] font-bold block mb-4 uppercase">Independent Legal Practice</span>
+        <h2 className="font-serif text-4xl md:text-6xl text-white italic font-bold">Advocate Name</h2>
       </div>
       <div 
         ref={lineRef}
