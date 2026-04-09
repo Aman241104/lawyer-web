@@ -30,7 +30,7 @@ const Navbar = () => {
     <>
       <nav 
         className={`fixed top-0 z-50 w-full transition-all duration-700 ${
-          scrolled 
+          scrolled || mobileMenuOpen
             ? "bg-white/95 backdrop-blur-md py-4 border-b border-primary/5 shadow-sm" 
             : "bg-transparent py-8"
         }`}
