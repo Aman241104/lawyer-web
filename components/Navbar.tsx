@@ -47,9 +47,7 @@ const Navbar = () => {
                   alt="Jay G Patel" 
                   width={150} 
                   height={150} 
-                  className={`w-auto h-12 md:h-20 transition-all duration-500 ${
-                    scrolled ? "brightness-100" : "brightness-0 invert"
-                  }`}
+                  className={`w-auto h-12 md:h-20 transition-all duration-500`}
                 />
               </Link>
             </div>

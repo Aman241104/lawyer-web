@@ -13,7 +13,7 @@ const Footer = () => {
                 alt="Jay G Patel" 
                 width={150} 
                 height={150} 
-                className="w-auto h-20 brightness-0 invert"
+                className="w-auto h-20"
               />
             </Link>
             <p className="text-white/50 text-sm md:text-base max-w-sm leading-relaxed mb-12 italic font-serif">
