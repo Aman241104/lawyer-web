@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --primary: #020617; /* Deepest Midnight */
-  --accent: #94a3b8; /* Slate Silver / Platinum */
+  --background: #fcfcfc;
+  --foreground: #121212;
+  --primary: #121212; /* Deep Charcoal */
+  --accent: #c5a059; /* Muted Gold */
   --accent-light: #f1f5f9;
   --glass: rgba(255, 255, 255, 0.03);
 }
@@ -40,7 +40,7 @@ body {
   position: absolute;
   inset: 0;
   background-image: url("https://www.transparenttextures.com/patterns/pinstriped-suit.png");
-  opacity: 0.1; /* Reduced opacity for better readability */
+  opacity: 0.05;
   pointer-events: none;
   z-index: 0;
 }
@@ -50,38 +50,36 @@ body {
   z-index: 1;
 }
 
-/* Legal Document Line */
-.legal-line {
-  position: relative;
-}
-
-.legal-line::before {
-  content: "";
-  position: absolute;
-  left: -2rem;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-}
-
 h1, h2, h3, h4, .font-serif {
   font-family: var(--font-playfair), serif;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 .section-title {
-  @apply text-[9px] md:text-[10px] font-bold uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-500 mb-4 block;
+  @apply text-[10px] md:text-[12px] font-bold uppercase tracking-[0.4em] text-accent mb-6 block;
 }
 
 /* Platinum Border */
 .platinum-border {
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border: 1px solid rgba(18, 18, 18, 0.1);
+}
+
+/* Text Reveal Animation Utility */
+.text-reveal-mask {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.text-reveal {
+  display: inline-block;
 }
 
 @layer utilities {
   .py-section {
-    @apply py-20 md:py-40;
+    @apply py-24 md:py-48;
+  }
+  .clip-path-hero {
+    clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
   }
 }
 
