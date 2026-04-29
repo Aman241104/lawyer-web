@@ -21,6 +21,16 @@ export const metadata: Metadata = {
   title: "Jay G Patel | Advocate | Ahmedabad High Court",
   description: "Official professional profile of Jay G Patel, Advocate. Providing independent legal advocacy and strategic counsel in Ahmedabad. Enrolled with the Bar Council of India.",
   keywords: ["Jay G Patel", "Advocate", "Ahmedabad High Court", "Legal Services", "Constitutional Law", "Civil Litigation"],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.png", type: "image/png", sizes: "192x192" },
+      { url: "/apple-icon.png", type: "image/png", sizes: "180x180" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: "Jay G Patel | Advocate",
     description: "Official professional profile of Jay G Patel, Advocate. Dedicated to the highest standards of legal precision and professional conduct.",
@@ -37,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${inter.variable} h-full antialiased`}
+      className={`${playfair.variable} ${inter.variable} antialiased`}
     >
       <head>
         <script
@@ -64,7 +74,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-inter bg-white selection:bg-accent/30 selection:text-primary">
+      <body className="flex flex-col font-inter bg-white selection:bg-accent/30 selection:text-primary">
         <Preloader />
         <DisclaimerGate />
         <SmoothScroll>
@@ -72,7 +82,6 @@ export default function RootLayout({
           <main className="flex-grow">
             {children}
           </main>
-          <Footer />
         </SmoothScroll>
       </body>
     </html>
